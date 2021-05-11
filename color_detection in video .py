@@ -4,6 +4,7 @@ import cv2
 
 # Capturing video through webcam
 webcam = cv2.VideoCapture(0)
+#if your webcam is good skip this two step
 #Install ip webcam on your phone and use as a camera
 address = "http://192.168.1.4:8080/video"
 webcam.open(address)
@@ -39,10 +40,7 @@ while True:
     blue_upper = np.array([121, 255, 255], np.uint8)
     blue_mask = cv2.inRange(hsvFrame, blue_lower, blue_upper)
 
-    # Morphological Transform, Dilation
-    # for each color and bitwise_and operator
-    # between imageFrame and mask determines
-    # to detect only that particular color
+    # Morphological Transform
     kernal = np.ones((5, 5), "uint8")
 
     # For red color
